@@ -8,7 +8,6 @@ character = load_image('Balrog.png')
 def handle_events():
     global running, x_dir, y_dir
     global x
-    # fill here
 
     events = get_events()
     for event in events:
@@ -58,5 +57,6 @@ while running:
     x += x_dir * 10
     y += y_dir * 10
     delay(0.05)
+
 
 close_canvas()
