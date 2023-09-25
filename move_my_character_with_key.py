@@ -45,10 +45,16 @@ x, y = TUK_WIDTH // 2, TUK_HEIGHT // 2
 while running:
     clear_canvas()
     tuk_ground.draw(TUK_WIDTH // 2, TUK_HEIGHT // 2)
-    character.clip_draw(frame * 185, 0, 185, 175, x, y)
+    if x_dir == 0 and y_dir == 0:
+        character.clip_draw(frame * 185, 200, 185, 175, x, y)
+    else:
+        character.clip_draw(frame * 185, 0, 185, 175, x, y)
     update_canvas()
     handle_events()
-    frame = (frame + 1) % 5
+    if x_dir == 0 and y_dir == 0:
+        frame = (frame + 1) % 2
+    else:
+        frame = (frame + 1) % 5
     x += x_dir * 10
     y += y_dir * 10
     delay(0.05)
