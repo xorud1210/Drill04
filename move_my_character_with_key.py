@@ -6,8 +6,9 @@ tuk_ground = load_image('TUK_GROUND.png')
 character = load_image('Balrog.png')
 
 def handle_events():
-    global running, x_dir
+    global running, x_dir, y_dir
     global x
+    # fill here
 
     events = get_events()
     for event in events:
@@ -18,6 +19,10 @@ def handle_events():
                 x_dir += 1
             elif event.key == SDLK_LEFT:
                 x_dir -= 1
+            elif event.key == SDLK_UP:
+                y_dir += 1
+            elif event.key == SDLK_DOWN:
+                y_dir -= 1
             elif event.key == SDLK_ESCAPE:
                 running = False
         elif event.type == SDL_KEYUP:
@@ -25,11 +30,16 @@ def handle_events():
                 x_dir -= 1
             elif event.key == SDLK_LEFT:
                 x_dir += 1
-        # fill here
+            elif event.key == SDLK_UP:
+                y_dir -= 1
+            elif event.key == SDLK_DOWN:
+                y_dir += 1
+
 
 running = True
 frame = 0
 x_dir = 0
+y_dir = 0
 x, y = TUK_WIDTH // 2, TUK_HEIGHT // 2
 
 while running:
@@ -40,6 +50,7 @@ while running:
     handle_events()
     frame = (frame + 1) % 5
     x += x_dir * 10
+    y += y_dir * 10
     delay(0.05)
 
 close_canvas()
