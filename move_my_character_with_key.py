@@ -67,9 +67,15 @@ while running:
     else:
         x += x_dir * 10
 
+    #경계면 넘어가지 않기
+    if y > TUK_HEIGHT:
+        y = TUK_HEIGHT
+    elif y < 0:
+        y = 0
+    else:
+        y += y_dir * 10
 
 
-    y += y_dir * 10
     delay(0.05)
 
 
