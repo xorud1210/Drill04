@@ -75,8 +75,6 @@ while running:
     else:
         y += y_dir * 10
 
-
     delay(0.05)
-
 
 close_canvas()
