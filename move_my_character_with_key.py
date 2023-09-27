@@ -46,6 +46,8 @@ while running:
     tuk_ground.draw(TUK_WIDTH // 2, TUK_HEIGHT // 2)
     if x_dir == 0 and y_dir == 0:
         character.clip_draw(frame * 185, 200, 185, 175, x, y)
+    elif x_dir == 1:
+        character.clip_composite_draw(frame * 185, 0, 185, 175, 0, 'h', x, y, 185, 175)
     else:
         character.clip_draw(frame * 185, 0, 185, 175, x, y)
     update_canvas()
@@ -55,6 +57,8 @@ while running:
     else:
         frame = (frame + 1) % 5
     x += x_dir * 10
+
+
     y += y_dir * 10
     delay(0.05)
 
