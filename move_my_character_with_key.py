@@ -52,11 +52,21 @@ while running:
         character.clip_draw(frame * 185, 0, 185, 175, x, y)
     update_canvas()
     handle_events()
+
+    # 애니메이션에 따라 프레임 조절
     if x_dir == 0 and y_dir == 0:
         frame = (frame + 1) % 2
     else:
         frame = (frame + 1) % 5
-    x += x_dir * 10
+
+    #경계면 넘어가지 않기
+    if x > TUK_WIDTH:
+        x = TUK_WIDTH
+    elif x < 0:
+        x = 0
+    else:
+        x += x_dir * 10
+
 
 
     y += y_dir * 10
